@@ -1,0 +1,66 @@
+<h1>Sign up</h1>
+<%= form_for resource, as: resource_name,
+  url: registration_path(resource_name) do |f| %>
+  <%= render "shared/error_messages", object: resource %>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <div class="field form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off",
+          class: "form-control" %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-md-offset-2">
+      <%= f.fields_for :profile do |ff| %>
+        <div class="field form-group">
+          <%= ff.label :address %>
+          <%= ff.text_field :address, class: "form-control" %>
+        </div>
+        
+        <div class="field form-group">
+          <%= ff.label :old %>
+          <%= ff.number_field :old, class: "form-control" %>
+        </div>
+
+        <div class="field form-group">
+          <%= ff.label :contact %>
+          <%= ff.text_field :contact, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= ff.label :gender %>
+          <%= ff.select :gender, User.genders.map {|k, v| [k, k]},
+            {include_blank: true}, class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions form-group center text-inline">
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <% end %>
+    <%= render "users/shared/links" %>
+  </div>
+</div>
