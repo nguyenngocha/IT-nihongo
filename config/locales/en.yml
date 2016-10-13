@@ -3,7 +3,7 @@ en:
   layouts:
     musical_instrument_review: "楽器 レビュー"
     home: "ホームページ"
-    profile: "プロフィル"
+    profile: "プロフィール"
     logout: "ログアウト"
     login: "ログイン"
   error:
@@ -11,10 +11,10 @@ en:
     error: "エラー"
   devise:
     edit: "ユーザー変更"
-    min_character: "characters minimum"
-    need_password: "we need your current password to confirm your changes"
+    min_character: "最小の文字"
+    need_password: "あなたの変更を確認するために、現在のパスワードを入力する必要があります。"
     back: "バック"
-    update: "保存"
+    update: "アップデート"
     sign_up: "サインアップ"
     login: "ログイン"
     email: "メール"
@@ -23,7 +23,7 @@ en:
     password_confirmation: "パスワード確認"
     address: "アドレス"
     old: "年齢"
-    contact: "連絡"
+    contact: "連絡先"
     gender: "性別"
-    current_password: "現在パスワード"
-    remember_me: "remember_me"
+    current_password: "現在のパスワード"
+    remember_me: "次回から自動的にログイン"
