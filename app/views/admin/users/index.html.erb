@@ -1,0 +1,28 @@
+<%= provide :title, t("admin.users") %>
+
+<h1><%= t "admin.users" %></h1>
+<%= link_to new_admin_user_path do %>
+  <div class="btn btn-success">
+    <%= t "admin.new" %>
+    <i class="glyphicon glyphicon-plus"></i>
+  </div>
+<% end %>
+
+<br/ >
+<br/ >
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "admin.user.user_id" %></th>
+      <th><%= t "admin.user.name" %>
+        <i class="glyphicon glyphicon-user"></i></th>
+      <th><%= t "admin.user.email" %>
+        <i class="glyphicon glyphicon-envelope"></i></th>
+      <th><i class="glyphicon glyphicon-wrench"></i></th>
+      <th><i class="glyphicon glyphicon-trash"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
