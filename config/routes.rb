@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root controller: :dashboard, action: :home, as: :root
-    resources :users
-    resources :musical_instruments
+    resources :users, except: :show
+    resources :musical_instruments, except: :show
   end
 end

@@ -1,0 +1,27 @@
+<%= provide :title, t("admin.musical_instruments") %>
+
+<h1><%= t "admin.musical_instruments" %></h1>
+<%= link_to new_admin_musical_instrument_path do %>
+  <div class="btn btn-success">
+    <%= t "admin.musical_instrument.new" %>
+    <i class="glyphicon glyphicon-plus"></i>
+  </div>
+<% end %>
+
+<br/ >
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "admin.musical_instrument.musical_instrument_id" %></th>
+      <th><%= t "admin.musical_instrument.musical_instrument_name" %>
+        <i class="glyphicon glyphicon-music"></i></th>
+      <th><%= t "admin.musical_instrument.price" %>
+        <i class="glyphicon glyphicon-"></i></th>
+      <th><i class="glyphicon glyphicon-wrench"></i></th>
+      <th><i class="glyphicon glyphicon-trash"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @musical_instruments %>
+  </tbody>
+</table>
