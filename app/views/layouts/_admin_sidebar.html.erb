@@ -18,6 +18,12 @@
       <% end %>
     </li>
     <li class="panel-group hvr-bounce-to-left">
+      <%= link_to admin_musical_instruments_path do %>
+        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>  
+        <span class="lm-text"><%= t "admin.musical_instruments" %></span>
+      <% end %>
+    </li>
+    <li class="panel-group hvr-bounce-to-left">
       <a data-toggle="collapse" href="#system">
         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>  
         <%= t "admin.system" %>
