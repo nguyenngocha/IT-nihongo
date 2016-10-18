@@ -27,3 +27,4 @@ en:
     gender: "性別"
     current_password: "現在のパスワード"
     remember_me: "次回から自動的にログイン"
+    not_authorize_admin: "You can't access this page!"
