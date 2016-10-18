@@ -1,4 +1,19 @@
 en:
   admin:
+    edit: "Edit"
+    delete: "Delete"
+    users: "Users"
+    confirm_delete: "Are You Sure?"
     user:
       new: "Add User"
+      edit: "Edit User"
+      save: "Save Changes"
+      name: "User"
+      user_id: "User ID"
+      name: "Name"
+      email: "Email"
+    flash:
+      add_success: "Add %{source} successfully"
+      edit_success: "Update %{source} successfully"
+      not_found: "%{source} not found"
+      destroy_success: "Delete %{source} successfully"
