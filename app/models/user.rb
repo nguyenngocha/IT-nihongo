@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comment, dependent: :destroy
 
   enum gender: [:male, :female]
+  enum role: [:user, :admin]
 
   def password_required?
     new_record? ? super : false
