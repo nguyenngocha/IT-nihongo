@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :evaluation, dependent: :destroy
   has_many :comment, dependent: :destroy
 
+  validates :name, presence: true
+
   enum gender: [:male, :female]
   enum role: [:user, :admin]
 

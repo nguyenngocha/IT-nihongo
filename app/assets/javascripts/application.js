@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require nested_attributes
 
 $(document).on('ready', function() {
   setTimeout(function() {

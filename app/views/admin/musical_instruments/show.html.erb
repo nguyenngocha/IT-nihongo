@@ -1,0 +1,12 @@
+<p><%= provide :title, @musical_instrument.name %></P>
+<p><%= @musical_instrument.name %></P>
+<p><%= @musical_instrument.price %></P>
+<p><%= @musical_instrument.material %></P>
+<p><%= @musical_instrument.sound_quality %></P>
+<p><%= @musical_instrument.felling %></P>
+<p><%= @musical_instrument.accessories %></P>
+<p><%= @musical_instrument.brand %></P>
+<p><%= @musical_instrument.seller %></P>
+<% @musical_instrument.musical_instrument_images.each do |image| %>
+  <%= image_tag image.image.url(:medium) %>
+<% end %>

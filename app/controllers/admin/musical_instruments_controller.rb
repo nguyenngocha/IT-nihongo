@@ -1,7 +1,7 @@
 class Admin::MusicalInstrumentsController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin
-  before_action :load_musical_instrument, only: [:edit, :update, :destroy]
+  before_action :load_musical_instrument, only: [:edit, :update, :destroy, :show]
 
   def index
     @musical_instruments = MusicalInstrument.all
@@ -9,6 +9,7 @@ class Admin::MusicalInstrumentsController < ApplicationController
 
   def new
     @musical_instrument = MusicalInstrument.new
+    @musical_instrument.musical_instrument_images.build
   end
 
   def create
@@ -42,7 +43,8 @@ class Admin::MusicalInstrumentsController < ApplicationController
   private
   def musical_instrument_params
     params.require(:musical_instrument).permit :name, :price, :material,
-      :sound_quality, :felling, :accessories, :brand, :seller
+      :sound_quality, :felling, :accessories, :brand, :seller,
+      musical_instrument_images_attributes: [:id, :image, :_destroy]
   end
 
   def load_musical_instrument
