@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013025503) do
+ActiveRecord::Schema.define(version: 20161019164847) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20161013025503) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_evaluations_on_post_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
+  end
+
+  create_table "musical_instrument_images", force: :cascade do |t|
+    t.integer  "musical_instrument_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["musical_instrument_id"], name: "index_musical_instrument_images_on_musical_instrument_id"
   end
 
   create_table "musical_instruments", force: :cascade do |t|

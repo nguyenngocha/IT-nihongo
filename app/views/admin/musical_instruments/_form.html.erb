@@ -27,20 +27,29 @@
       <%= f.text_field :felling, class: "form-control" %>
     </div>
 
-      <div class="form-group">
+    <div class="form-group">
       <%= f.label :accessories, t("admin.musical_instrument.accessories") %>
       <%= f.text_field :accessories, class: "form-control" %>
     </div>
 
-      <div class="form-group">
+    <div class="form-group">
       <%= f.label :brand, t("admin.musical_instrument.brand") %>
       <%= f.text_field :brand, class: "form-control" %>
     </div>
 
-      <div class="form-group">
+    <div class="form-group">
       <%= f.label :seller, t("admin.musical_instrument.seller") %>
       <%= f.text_field :seller, class: "form-control" %>
     </div>
+
+    <div class="form-group">
+      <%= f.fields_for :musical_instrument_images do |ff| %>
+         <%= render "musical_instrument_image_field", f: ff %>
+      <% end %>
+      <%= link_to_add_fields "Add other musical instrument images",
+        f, :musical_instrument_images %>
+    </div>
+
     <div class="row">
       <div class="actions form-group center text-inline">
         <%= f.submit yield(:submit), class: "btn btn-primary" %>
