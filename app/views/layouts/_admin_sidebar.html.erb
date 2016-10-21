@@ -8,7 +8,7 @@
     <li class="panel-group hvr-bounce-to-left">
       <%= link_to admin_root_path do %>
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  
-        <span class="lm-text"><%= t :dash_board %></span>
+        <span class="lm-text"><%= t "admin.home_page" %></span>
       <% end %>
     </li>
     <li class="panel-group hvr-bounce-to-left">
@@ -31,11 +31,11 @@
     <li class="panel-group hvr-bounce-to-left">
       <a data-toggle="collapse" href="#account">
         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>  
-        <%= t :account %>
+        <%= t "admin.account" %>
       </a>
       <ul id="account" class="panel-collapse collapse">
         <li>
-          <%= link_to t("devise.button.logout"), destroy_user_session_path, method: :delete %>
+          <%= link_to t("layouts.logout"), destroy_user_session_path, method: :delete %>
         </li>
       </ul>
     </li>

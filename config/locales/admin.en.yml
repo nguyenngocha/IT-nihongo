@@ -4,6 +4,9 @@ en:
     delete: "削除"
     users: "ユーザー・一覧"
     confirm_delete: "確か?"
+    home_page: "管理者ホームページ"
+    system: "システム"
+    account: "アカウント"
     user:
       new: "ユーザーの追加"
       edit: "ユーザーの編集"

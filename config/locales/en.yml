@@ -6,6 +6,7 @@ en:
     profile: "プロフィール"
     logout: "ログアウト"
     login: "ログイン"
+    user_home: "ユーザー・ホームページ"
   error:
     have: "存在: "
     error: "エラー"
