@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019164847) do
+ActiveRecord::Schema.define(version: 20161025132923) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20161019164847) do
     t.index ["musical_instrument_id"], name: "index_musical_instrument_images_on_musical_instrument_id"
   end
 
+  create_table "musical_instrument_sellers", force: :cascade do |t|
+    t.integer  "musical_instrument_id"
+    t.string   "name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["musical_instrument_id"], name: "index_musical_instrument_sellers_on_musical_instrument_id"
+  end
+
   create_table "musical_instruments", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
@@ -52,7 +60,6 @@ ActiveRecord::Schema.define(version: 20161019164847) do
     t.string   "felling"
     t.string   "accessories"
     t.string   "brand"
-    t.string   "seller"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -10,6 +10,7 @@ class Admin::MusicalInstrumentsController < ApplicationController
   def new
     @musical_instrument = MusicalInstrument.new
     @musical_instrument.musical_instrument_images.build
+    @musical_instrument.musical_instrument_sellers.build
   end
 
   def create
@@ -43,8 +44,8 @@ class Admin::MusicalInstrumentsController < ApplicationController
   private
   def musical_instrument_params
     params.require(:musical_instrument).permit :name, :price, :material,
-      :sound_quality, :felling, :accessories, :brand, :seller,
-      musical_instrument_images_attributes: [:id, :image, :_destroy]
+      :brand, :seller, musical_instrument_images_attributes: [:id, :image, :_destroy],
+      musical_instrument_sellers_attributes: [:id, :name, :_destroy]
   end
 
   def load_musical_instrument
