@@ -1,0 +1,50 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= form_for [:admin, @musical_instrument] do |f| %>
+    <%= render "shared/error_messages", object: @musical_instrument %>
+
+    <div class="form-group">
+      <%= f.label :name, t("admin.musical_instrument.musical_instrument_name") %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :price, t("admin.musical_instrument.price") %>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :material, t("admin.musical_instrument.material") %>
+      <%= f.text_field :material, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :brand, t("admin.musical_instrument.brand") %>
+      <%= f.text_field :brand, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :sellers, t("admin.musical_instrument.sellers") %>
+      <%= f.fields_for :musical_instrument_sellers do |fff| %>
+         <%= render "musical_instrument_seller_field", f: fff %>
+      <% end %>
+      <%= link_to_add_fields t("admin.add_other_sellers"),
+        f, :musical_instrument_sellers %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :images, t("admin.images") %>
+      <%= f.fields_for :musical_instrument_images do |ff| %>
+         <%= render "musical_instrument_image_field", f: ff %>
+      <% end %>
+      <%= link_to_add_fields t("admin.add_other_images"),
+        f, :musical_instrument_images %>
+    </div>
+
+    <div class="row">
+      <div class="actions form-group center text-inline">
+        <%= f.submit yield(:submit), class: "btn btn-primary" %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  <% end %>
+</div>

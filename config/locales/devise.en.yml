@@ -1,0 +1,9 @@
+en:
+  devise:
+    registrations:
+      signed_up: "ようこそ ！正常にサインアップしました。"
+      updated: "アカウントは正常に更新されました。"
+    sessions:
+      signed_in: "正常にログインしました。"
+      signed_out: "正常にログアウトしました。"
+      already_signed_out: "正常にログアウトしました。"

@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require nested_attributes
+
+$(document).on('ready', function() {
+  setTimeout(function() {
+    $('.alert').fadeOut('slow');
+  }, 3000);
+});

@@ -1,0 +1,13 @@
+<tr>
+  <th><%= musical_instrument.id %></th>
+  <th><%= link_to musical_instrument.name,
+    admin_musical_instrument_path(musical_instrument) %></th>
+  <th><%= musical_instrument.price %></th>
+  <th><%= link_to t("admin.edit"),
+    edit_admin_musical_instrument_path(musical_instrument),
+    class: "warning" %></th>
+  <th><%= link_to t("admin.delete"),
+    admin_musical_instrument_path(musical_instrument),
+    method: :delete, data: {confirm: t("admin.confirm_delete")},
+    class: "danger" %></th>
+</tr>

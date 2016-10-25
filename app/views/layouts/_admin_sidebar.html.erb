@@ -1,0 +1,43 @@
+<div id="sidebar-wrapper" class="lm-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <%= link_to admin_root_path do %>
+        <%= image_tag "logo.png", class: "header-img" %>
+      <% end %>  
+    </li>
+    <li class="panel-group hvr-bounce-to-left">
+      <%= link_to admin_root_path do %>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  
+        <span class="lm-text"><%= t "admin.home_page" %></span>
+      <% end %>
+    </li>
+    <li class="panel-group hvr-bounce-to-left">
+      <%= link_to admin_users_path do %>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  
+        <span class="lm-text"><%= t "admin.users" %></span>
+      <% end %>
+    </li>
+    <li class="panel-group hvr-bounce-to-left">
+      <%= link_to admin_musical_instruments_path do %>
+        <span class="glyphicon glyphicon-music" aria-hidden="true"></span>  
+        <span class="lm-text"><%= t "admin.musical_instruments" %></span>
+      <% end %>
+    </li>
+    <li class="panel-group hvr-bounce-to-left">
+      <a data-toggle="collapse" href="#system">
+        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>  
+        <%= t "admin.system" %>
+      </a>
+    <li class="panel-group hvr-bounce-to-left">
+      <a data-toggle="collapse" href="#account">
+        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>  
+        <%= t "admin.account" %>
+      </a>
+      <ul id="account" class="panel-collapse collapse">
+        <li>
+          <%= link_to t("layouts.logout"), destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
