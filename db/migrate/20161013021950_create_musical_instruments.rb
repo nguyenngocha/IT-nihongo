@@ -8,7 +8,6 @@ class CreateMusicalInstruments < ActiveRecord::Migration[5.0]
       t.string :felling
       t.string :accessories
       t.string :brand
-      t.string :seller
 
       t.timestamps
     end

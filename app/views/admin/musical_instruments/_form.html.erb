@@ -18,35 +18,25 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :sound_quality, t("admin.musical_instrument.sound_quality") %>
-      <%= f.text_field :sound_quality, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :felling, t("admin.musical_instrument.felling") %>
-      <%= f.text_field :felling, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :accessories, t("admin.musical_instrument.accessories") %>
-      <%= f.text_field :accessories, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
       <%= f.label :brand, t("admin.musical_instrument.brand") %>
       <%= f.text_field :brand, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :seller, t("admin.musical_instrument.seller") %>
-      <%= f.text_field :seller, class: "form-control" %>
+      <%= f.label :sellers, t("admin.musical_instrument.sellers") %>
+      <%= f.fields_for :musical_instrument_sellers do |fff| %>
+         <%= render "musical_instrument_seller_field", f: fff %>
+      <% end %>
+      <%= link_to_add_fields t("admin.add_other_sellers"),
+        f, :musical_instrument_sellers %>
     </div>
 
     <div class="form-group">
+      <%= f.label :images, t("admin.images") %>
       <%= f.fields_for :musical_instrument_images do |ff| %>
          <%= render "musical_instrument_image_field", f: ff %>
       <% end %>
-      <%= link_to_add_fields "Add other musical instrument images",
+      <%= link_to_add_fields t("admin.add_other_images"),
         f, :musical_instrument_images %>
     </div>
 

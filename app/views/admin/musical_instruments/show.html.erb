@@ -9,10 +9,10 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <% 0...@musical_instrument.musical_instrument_images.each do |number| %>
+          <li data-target="#myCarousel" data-slide-to="<%= number%>"
+            <%= "class='active'" if number ==0 %>></li>
+        <% end %>
       </ol>
 
       <div class="carousel-inner" role="listbox">
@@ -35,7 +35,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-8 gakki-show">
+  <div class="col-md-6 col-md-offset-1 gakki-show">
     <ul>
       <li><p><%= t "admin.musical_instrument.name" %>:
         <%= @musical_instrument.name %></p></li>
@@ -43,16 +43,12 @@
         <%= @musical_instrument.price %></p></li>
       <li><p><%= t "admin.musical_instrument.material" %>:
         <%= @musical_instrument.material %></p></li>
-      <li><p><%= t "admin.musical_instrument.sound_quality" %>:
-        <%= @musical_instrument.sound_quality %></p></li>
-      <li><p><%= t "admin.musical_instrument.felling" %>:
-        <%= @musical_instrument.felling %></p></li>
-      <li><p><%= t "admin.musical_instrument.accessories" %>:
-        <%= @musical_instrument.accessories %></p></li>
       <li><p><%= t "admin.musical_instrument.brand" %>:
         <%= @musical_instrument.brand %></p></li>
-      <li><p><%= t "admin.musical_instrument.seller" %>:
-        <%= @musical_instrument.seller %></p></li>
+      <li><%= t "admin.musical_instrument.sellers" %>:
+        <% @musical_instrument.musical_instrument_sellers.each do |seller| %>
+          <p><%= seller.name %></p>
+        <% end %></li>
     </ul>
   </div>
 </div>
