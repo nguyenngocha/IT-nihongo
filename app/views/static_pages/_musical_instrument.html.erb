@@ -1,0 +1,33 @@
+<div class="row carousel-holder">
+  <div class="col-md-12">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% @images.each_with_index do |image, index| %>
+          <li data-target="#carousel-example-generic"
+            data-slide-to="<%= index %>" <%= "class=active" if index == 0 %>></li>
+        <% end %>
+      </ol>
+
+      <div class="carousel-inner">
+        <% @images.each do |image| %>
+          <div class="item <%= "active" if image == @images.first %>">
+            <%= image_tag image.image, class: "slide-image" %>
+          </div>
+        <% end %>
+      </div>
+
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <h3><div class="col-md-6">Name: <%= @musical_instrument.name %></div></h3>
+    <h3><div class="col-md-6">Price: <%= @musical_instrument.price %></div></h3>
+    <h3><div class="col-md-6">Material: <%= @musical_instrument.material %></div></h3>
+    <h3><div class="col-md-6">Brand: <%= @musical_instrument.brand %> </div></h3>
+  </div>
+</div>
