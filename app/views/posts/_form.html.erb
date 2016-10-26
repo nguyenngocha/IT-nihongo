@@ -1,0 +1,55 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= form_for @post do |f| %>
+    <%= render "shared/error_messages", object: @post %>
+
+    <div class="form-group">
+      <%= f.label :musical_instrument, t("user.post.musical_instrument") %>
+      <%= f.select :musical_instrument_id,
+        options_from_collection_for_select(@musical_instruments, :id, :name,
+        selected: @post.musical_instrument_id), {include_blank: false},
+        class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :name, t("user.post.post_name") %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, t("user.post.description") %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :content, t("user.post.content") %>
+      <%= f.cktext_area :content, class: "someclass" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.label :sound_quality, t("user.post.sound_quality") %>
+      <%= f.select :sound_quality, Post.sound_qualities.map{|k, v|
+        [t("user.post.sound_qualities.#{k}"), k]},
+        {include_blank: true}, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.label :felling, t("user.post.felling") %>
+      <%= f.select :felling, Post.fellings.map {|k, v| [t("user.post.fellings.#{k}"), k]},
+        {include_blank: true}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :accessories, t("user.post.accessories") %>
+      <%= f.text_area :accessories, class: "form-control" %>
+    </div>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <div class="row">
+      <div class="actions form-group center text-inline">
+        <%= f.submit yield(:submit), class: "btn btn-primary" %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  <% end %>
+</div>

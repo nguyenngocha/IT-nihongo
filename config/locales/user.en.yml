@@ -1,0 +1,26 @@
+en:
+  user:
+    posts: "投稿・一覧"
+    post:
+      update: "投稿更新"
+      save: "変更を保存"
+      new: "新しいポスト"
+      name: "投稿"
+      description: "説明"
+      post_name: "名前"
+      musical_instrument: "機器名"
+      content: "コンテンツ"
+      sound_quality: "音質"
+      felling: "感触"
+      accessories: "付属品"
+      sound_qualities:
+        verybad: "非常に悪い"
+        bad: "悪い"
+        normal: "ノーマル"
+        good: "良い"
+        verygood: "とても良い"
+      fellings:
+        villainous: "極悪"
+        great: "グレート"
+        awesome: "すごい"
+      id: "投稿 ID"

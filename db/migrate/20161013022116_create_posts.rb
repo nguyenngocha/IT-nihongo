@@ -4,6 +4,11 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.references :musical_instrument, foreign_key: true
       t.string :content
       t.references :user, foreign_key: true
+      t.string :name
+      t.string :description
+      t.integer :sound_quality
+      t.integer :felling
+      t.string :accessories
 
       t.timestamps
     end
