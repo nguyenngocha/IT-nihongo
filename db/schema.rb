@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025132923) do
+ActiveRecord::Schema.define(version: 20161026151008) do
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -56,18 +72,20 @@ ActiveRecord::Schema.define(version: 20161025132923) do
     t.string   "name"
     t.integer  "price"
     t.string   "material"
-    t.string   "sound_quality"
-    t.string   "felling"
-    t.string   "accessories"
     t.string   "brand"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
     t.integer  "musical_instrument_id"
     t.string   "content"
     t.integer  "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "sound_quality"
+    t.integer  "felling"
+    t.string   "accessories"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.index ["musical_instrument_id"], name: "index_posts_on_musical_instrument_id"

@@ -1,0 +1,29 @@
+<% provide :title, t("user.posts") %>
+<div class="container">
+  <h1><%= t "user.posts" %></h1>
+  <%= link_to new_post_path do %>
+    <div class="btn btn-success">
+      <%= t "user.post.new" %>
+      <i class="glyphicon glyphicon-plus"></i>
+    </div>
+  <% end %>
+
+  <br/ >
+  <br/ >
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t "user.post.id" %></th>
+        <th><%= t "user.post.musical_instrument" %></th>
+        <th><%= t "user.post.sound_quality" %>
+          <i class="glyphicon glyphicon-music"></i></th>
+        <th><%= t "user.post.felling" %></th>
+        <th><i class="glyphicon glyphicon-wrench"></i></th>
+        <th><i class="glyphicon glyphicon-trash"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @posts %>
+    </tbody>
+  </table>
+</div>

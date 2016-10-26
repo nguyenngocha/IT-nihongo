@@ -1,0 +1,10 @@
+<tr>
+  <th><%= post.id %></th>
+  <th><%= link_to post.musical_instrument.name, post_path(post) %></th>
+  <th><%= t "user.post.sound_qualities.#{post.sound_quality}" if post.sound_quality %></th>
+  <th><%= t "user.post.fellings.#{post.felling}" if post.felling %></th>
+  <th><%= link_to t("admin.edit"), edit_post_path(post), class: "warning" %></th>
+  <th><%= link_to t("admin.delete"), post_path(post),
+    method: :delete, data: {confirm: t("admin.confirm_delete")},
+    class: "danger" %></th>
+</tr>

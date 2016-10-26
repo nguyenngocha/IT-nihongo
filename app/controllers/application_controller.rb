@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def verify_user
+    unless current_user.user?
+      flash[:danger] = t "not_authorize_admin"
+      redirect_to admin_root_path
+    end
+  end
+
   private
   def namespace
     @namespace = self.class.parent.to_s.downcase
