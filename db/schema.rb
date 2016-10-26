@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026151008) do
+ActiveRecord::Schema.define(version: 20161026152746) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -30,12 +30,14 @@ ActiveRecord::Schema.define(version: 20161026151008) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "post_id"
     t.integer  "target_id"
     t.string   "target_type"
     t.string   "content"
     t.integer  "type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -88,6 +90,10 @@ ActiveRecord::Schema.define(version: 20161026151008) do
     t.string   "accessories"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["musical_instrument_id"], name: "index_posts_on_musical_instrument_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
 
   def verify_admin
     unless current_user.admin?
-      flash[:danger] = t "not_authorize_admin"
+      flash[:danger] = t "devise.not_authorize_admin"
       redirect_to root_path
     end
   end
 
   def verify_user
     unless current_user.user?
-      flash[:danger] = t "not_authorize_admin"
+      flash[:danger] = t "devise.not_authorize_admin"
       redirect_to admin_root_path
     end
   end

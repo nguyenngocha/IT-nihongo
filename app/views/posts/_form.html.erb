@@ -43,6 +43,10 @@
       <%= f.text_area :accessories, class: "form-control" %>
     </div>
 
+    <div class="form-group">
+      <%= f.file_field :image %>
+    </div>
+
     <%= f.hidden_field :user_id, value: current_user.id %>
 
     <div class="row">

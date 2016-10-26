@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :verify_user
+  before_action :verify_user, except: :show
   before_action :load_music_instrument, only: [:new, :edit]
   before_action :load_post, only: [:edit, :show, :update, :destroy]
+  before_action :load_comment, only: :show
 
   def index
     @posts =  Post.all
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit :sound_quality, :felling, :accessories, :name,
-      :user_id, :content, :musical_instrument_id
+      :user_id, :content, :musical_instrument_id, :image
   end
 
   def load_music_instrument
@@ -55,5 +56,10 @@ class PostsController < ApplicationController
       flash[:danger] = t "admin.flash.not_found", source: t("user.post.name")
       redirect_to posts_path
     end
+  end
+
+  def load_comment
+    @comments = @post.comments
+    @comment = @post.comments.new
   end
 end
