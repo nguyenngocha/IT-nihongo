@@ -1,0 +1,37 @@
+<% provide :title, @post.name %>
+<h1><%= @post.name %></h1>
+<div class="row post">
+  <div class="col-md-4">
+    <div><%= image_tag @post.image.url(:medium) %></div>
+    <br />
+    <div class="col-md-6"><%= t "user.post.felling" %>: 
+      <%= t "user.post.fellings.#{@post.felling}" %></div>
+    <div class="col-md-6"><%= t "user.post.sound_quality" %>: 
+      <%= t "user.post.sound_qualities.#{@post.sound_quality}" %></div>
+    <br />
+    <div class="container"><%= t "user.post.description" %>: <%= @post.description %></div>
+    <div class="container"><%= t "user.post.accessories" %>: <%= @post.accessories %></div>
+  </div>
+  <div class="col-md-8">
+    <%= @post.content.html_safe %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container">
+    <div class="pull-right">
+      <%= t "user.create_by" %>: <%= @post.user.name %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="pull-left">
+      <h2>comment</h2>
+    </div>
+    <%= render @comments %>
+    <br />
+    <%= render "comment_form" %>
+  </div>
+</div>

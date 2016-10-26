@@ -2,7 +2,7 @@
   <% @musical_instrument.posts.each do |post| %>
     <div class="col-sm-4 col-lg-4 col-md-4">
       <div class="thumbnail">
-        <%= link_to image_tag(@musical_instrument.musical_instrument_images.first.image), post %>
+        <%= link_to image_tag(post.image), post %>
         <div class="caption">
           <h4><%= link_to post.content.html_safe, post %></h4>
           <p><%= post.content.html_safe %></p>
