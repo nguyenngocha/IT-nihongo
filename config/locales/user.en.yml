@@ -1,5 +1,6 @@
 en:
   user:
+    comment: "Comment"
     posts: "投稿・一覧"
     post:
       update: "投稿更新"

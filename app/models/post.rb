@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :musical_instrument
   belongs_to :user
-  has_many :comments, dependent: :destroy
+
+  def comments
+    Comment.pcomments self.id
+  end
 
   has_many :evaluation, dependent: :destroy
 
