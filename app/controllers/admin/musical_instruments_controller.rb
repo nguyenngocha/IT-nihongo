@@ -2,6 +2,7 @@ class Admin::MusicalInstrumentsController < ApplicationController
   before_action :authenticate_user!
   before_action :verify_admin
   before_action :load_musical_instrument, only: [:edit, :update, :destroy, :show]
+  before_action :load_posts, only: :show
 
   def index
     @musical_instruments = MusicalInstrument.all
@@ -55,5 +56,9 @@ class Admin::MusicalInstrumentsController < ApplicationController
         source: t("admin.musical_instrument.name")
       redirect_to admin_musical_instruments_path
     end
+  end
+
+  def load_posts
+    @posts = @musical_instrument.posts
   end
 end
