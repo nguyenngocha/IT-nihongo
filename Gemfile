@@ -14,6 +14,7 @@ gem "devise"
 gem "bootstrap-sass", "3.3.6"
 gem "paperclip", "~> 5.0.0"
 gem "ckeditor"
+gem "faker"
 
 group :development, :test do
   gem "byebug", platform: :mri

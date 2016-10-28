@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes post_params
-      flash[:success] = t "admin.update_success", source: t("user.post.name")
+      flash[:success] = t "admin.flash.update_success", source: t("user.post.name")
       redirect_to posts_path
     else
       load_music_instrument
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = t "admin.delete_success", source: t("user.post.name")
+    flash[:success] = t "admin.flash.destroy_success", source: t("user.post.name")
     redirect_to posts_path
   end
 

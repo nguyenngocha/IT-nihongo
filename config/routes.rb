@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root controller: :dashboard, action: :home, as: :root
     resources :users, except: :show
     resources :musical_instruments
+    resources :posts, only: [:show, :destroy]
   end
 
   resources :posts
