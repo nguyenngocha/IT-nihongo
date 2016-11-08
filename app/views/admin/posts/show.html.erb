@@ -36,18 +36,29 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="container">
+  <div class="col-sm-offset-1">
     <div class="pull-left">
       <h2><%= t "user.comment" %></h2>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <div>
-      <%= render @comments %>
+  </div>
+</div>
+
+  <div class="col-sm-8 col-sm-offset-1">
+    <div class="panel panel-white post panel-shadow">
+      <div class="post-footer">
+        <div class="input-group form-comment">
+          <% unless current_user.admin? %>
+            <%= render "shared/comment_form" %>
+          <% end %>
+        </div>
+
+        <ul class="comments-list">
+          <li class="comment">
+            <%= render @comments %>
+          </li>
+        </ul>
+      </div>
     </div>
-    <br />
   </div>
 </div>

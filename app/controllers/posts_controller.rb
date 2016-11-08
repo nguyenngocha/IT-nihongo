@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   before_action :load_comment, only: :show
 
   def index
-    @posts =  Post.all
+    @posts = current_user.posts.includes(:comments)
   end
 
   def new

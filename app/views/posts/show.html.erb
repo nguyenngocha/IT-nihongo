@@ -35,11 +35,23 @@
     <br />
     <br />
     <div>
-      <%= render @comments %>
-    </div>
-    <br />
-    <div>
-      <%= render "comment_form" %>
+
+<div class="container">
+  <div class="col-sm-8">
+    <div class="panel panel-white post panel-shadow">
+      <div class="post-footer">
+        <div class="input-group form-comment">
+          <% unless current_user.admin? %>
+            <%= render "shared/comment_form" %>
+          <% end %>
+        </div>
+
+        <ul class="comments-list">
+          <li class="comment">
+            <%= render @comments %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

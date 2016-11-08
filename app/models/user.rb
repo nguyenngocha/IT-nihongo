@@ -4,9 +4,9 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile, allow_destroy: true
 
-  has_many :post, dependent: :destroy
-  has_many :evaluation, dependent: :destroy
-  has_many :comment, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :evaluations, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
 
