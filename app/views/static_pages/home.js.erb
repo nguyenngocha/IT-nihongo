@@ -1,1 +1,5 @@
-$(".home-content").html("<%= j render 'home_page_content' %>");
+<% if @is_search %>
+  $(".posts").html("<%= j render 'posts' %>")
+<% else %>
+  $(".home-content").html("<%= j render 'home_page_content' %>");
+<% end %>

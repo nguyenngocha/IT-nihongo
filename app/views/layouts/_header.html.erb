@@ -1,5 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <div class="row">
+      <div class="col-md-3">
     <% if user_signed_in? && current_user.admin? %>
       <%= link_to t("layouts.musical_instrument_review"),
         admin_users_path, id: "logo" %>
@@ -7,6 +9,14 @@
       <%= link_to t("layouts.musical_instrument_review"),
         root_path, id: "logo" %>
     <% end %>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-lg-12 search_form">
+            <%= render "layouts/search_form" %>
+          </div>
+        </div>
+      </div>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? && current_user.admin? %>
