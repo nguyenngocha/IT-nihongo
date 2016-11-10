@@ -14,10 +14,11 @@ gem "devise"
 gem "bootstrap-sass", "3.3.6"
 gem "paperclip", "~> 5.0.0"
 gem "ckeditor"
-gem "faker"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "faker"
 end
 
 group :development do

@@ -153,10 +153,10 @@ input {
 }
 
 .navbar-inverse {
-  background-color: #75c2ff;
+  background-color: #18344b;
   border-color: #75c2ff;
   .navbar-nav > li > a {
-    color: BLACK;
+    color: #18344b;
   }
 }
 
@@ -285,4 +285,8 @@ input {
 }
 .margin-top-50px {
   margin-top: 80px;
+}
+
+.search_form {
+  margin-top: 10px;
 }

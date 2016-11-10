@@ -12,3 +12,21 @@ $(document).on('turbolinks:load', function() {
     $.getScript("/comments/" + $(this).data("id") + "/edit")
   });
 });
+
+$(document).on('turbolinks:load', function() {
+  $('body').on('click','.search', function(e){
+    var search;
+    e.preventDefault();
+    search = document.getElementById('search_form');
+    $.getScript('/?q=' + search.value);
+  })
+});
+
+$(document).on('turbolinks:load', function() {
+  $("body").on('keypress','.form',function (event) { 
+    if (event.which == 13) { 
+      $(this).find(".search").click(); 
+      return false; 
+    }
+  });
+});

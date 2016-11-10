@@ -10,7 +10,7 @@ puts "create users"
     profile_attributes: {old: "20", gender: "male",
       address: "#{Faker::Address.street_address} - #{Faker::Address.city}",
       contact: Faker::PhoneNumber.cell_phone,
-      avatar: open(Faker::Avatar.image "my-own-slug")}
+      avatar: open(Faker::Avatar.image)}
   end
 
 puts "create musical instruments"
@@ -52,6 +52,7 @@ puts "Create Posts"
       content: Faker::Lorem.paragraph, user: User.user.shuffle.first,
       name: "#{musical_instrument.name} Review", description: Faker::Lorem.sentence,
       sound_quality: "normal", felling: "great",
+      musical_instrument_evaluate_attributes: {evaluation: 50 + rand(50)},
       image: File.open(File.join(Rails.root, "app/assets/images/#{musical_instrument.name.downcase!}#{index}.jpg"))
   end
 end

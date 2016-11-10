@@ -74,16 +74,6 @@ ActiveRecord::Schema.define(version: 20161110021423) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_evaluates", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.integer  "evaluation"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_post_evaluates_on_post_id"
-    t.index ["user_id"], name: "index_post_evaluates_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer  "musical_instrument_id"
     t.string   "content"
