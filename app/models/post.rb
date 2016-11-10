@@ -14,4 +14,7 @@ class Post < ApplicationRecord
 
   enum sound_quality: [:verybad, :bad, :normal, :good, :verygood]
   enum felling: [:villainous, :great, :awesome]
+
+  has_one :musical_instrument_evaluate, dependent: :destroy
+  accepts_nested_attributes_for :musical_instrument_evaluate, allow_destroy: true
 end
