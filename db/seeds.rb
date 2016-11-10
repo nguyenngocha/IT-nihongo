@@ -1,3 +1,4 @@
+require "open-uri"
 puts "create admin"
 User.create! name: "admin", role: "admin", email: "admin@gmail.com",
   password: "123456", password_confirmation: "123456"
@@ -5,7 +6,11 @@ User.create! name: "admin", role: "admin", email: "admin@gmail.com",
 puts "create users"
 (1..10).each do |index|
   User.create! name: Faker::Name.last_name, role: "user", email: "user#{index}@gmail.com",
-    password: "123456", password_confirmation: "123456"
+    password: "123456", password_confirmation: "123456",
+    profile_attributes: {old: "20", gender: "male",
+      address: "#{Faker::Address.street_address} - #{Faker::Address.city}",
+      contact: Faker::PhoneNumber.cell_phone,
+      avatar: open(Faker::Avatar.image "my-own-slug")}
   end
 
 puts "create musical instruments"

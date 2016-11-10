@@ -53,6 +53,10 @@
           <%= ff.select :gender, User.genders.map {|k, v| [k, k]},
             {include_blank: true}, class: "form-control" %>
         </div>
+        <div class="field form-group">
+          <%= ff.label :avatar, t("devise.avatar") %>
+          <%= ff.file_field :avatar %>
+        </div>
       <% end %>
     </div>
   </div>

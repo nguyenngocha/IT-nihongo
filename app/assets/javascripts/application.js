@@ -19,7 +19,7 @@
 //= require common
 //= require ckeditor/init
 
-$(document).on('ready', function() {
+$(document).on('turbolinks:load', function() {
   setTimeout(function() {
     $('.alert').fadeOut('slow');
   }, 3000);

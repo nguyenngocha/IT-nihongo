@@ -1,3 +1,21 @@
-<ul class="none-style">
-  <p><%= comment.user.name %>: <%= comment.content %></p>
-</ul>
+<div class="col-md-10">
+<% user = comment.user %>
+<a class="pull-left" href="#">
+  <%= image_tag user.profile.avatar, class: "avatar" %>
+</a>
+<div class="comment-body">
+  <div class="comment-heading">
+    <h4 class="user"><%= user.name %></h4>
+    <h5 class="time"><%= comment.created_at %></h5>
+  </div>
+  <p><%= comment.content %></p>
+</div>
+</div>
+<div class="col-md-2">
+  <h5 class="pull-right">
+    <%= link_to admin_comment_path(comment), method: :delete, data: {confirm: t("admin.confirm_delete")},
+      class: "danger" do %>
+      <i class="glyphicon glyphicon-trash"></i>
+    <% end %>
+  </h5>
+</div>
