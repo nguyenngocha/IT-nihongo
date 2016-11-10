@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106103557) do
+ActiveRecord::Schema.define(version: 20161110021423) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -38,14 +38,12 @@ ActiveRecord::Schema.define(version: 20161106103557) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "evaluations", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "musical_instrument_evaluates", force: :cascade do |t|
     t.integer  "post_id"
-    t.integer  "score"
+    t.integer  "evaluation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_evaluations_on_post_id"
-    t.index ["user_id"], name: "index_evaluations_on_user_id"
+    t.index ["post_id"], name: "index_musical_instrument_evaluates_on_post_id"
   end
 
   create_table "musical_instrument_images", force: :cascade do |t|
@@ -74,6 +72,16 @@ ActiveRecord::Schema.define(version: 20161106103557) do
     t.string   "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "post_evaluates", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.integer  "evaluation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_evaluates_on_post_id"
+    t.index ["user_id"], name: "index_post_evaluates_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

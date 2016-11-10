@@ -6,11 +6,16 @@ class PostsController < ApplicationController
   before_action :load_comment, only: :show
 
   def index
-    @posts = current_user.posts.includes(:comments)
+    @posts = current_user.posts
   end
 
   def new
    @post = Post.new
+   @post.build_musical_instrument_evaluate
+  end
+
+  def show
+    @comments = @post.comments.includes user: :profile
   end
 
   def create
@@ -43,7 +48,8 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit :sound_quality, :felling, :accessories, :name,
-      :user_id, :content, :musical_instrument_id, :image
+      :user_id, :content, :musical_instrument_id, :image,
+      musical_instrument_evaluate_attributes: :evaluation
   end
 
   def load_music_instrument
