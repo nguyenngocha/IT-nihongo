@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
+    devise :database_authenticatable, :registerable,
     :rememberable, :validatable
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile, allow_destroy: true

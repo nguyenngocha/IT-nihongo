@@ -1,15 +1,15 @@
 <div class="col-md-10">
-<% user = comment.user %>
-<a class="pull-left" href="#">
-  <%= image_tag user.profile.avatar, class: "avatar" %>
-</a>
-<div class="comment-body">
-  <div class="comment-heading">
-    <h4 class="user"><%= user.name %></h4>
-    <h5 class="time"><%= comment.created_at %></h5>
+  <% user = comment.user %>
+  <a class="pull-left" href="#">
+    <%= image_tag user.profile.avatar, class: "avatar" %>
+  </a>
+  <div class="comment-body">
+    <div class="comment-heading">
+      <h4 class="user"><%= user.name %></h4>
+      <h5 class="time"><%= "#{time_ago_in_words(comment.created_at)} ago" %></h5>
+    </div>
+    <p><%= comment.content %></p>
   </div>
-  <p><%= comment.content %></p>
-</div>
 </div>
 <div class="col-md-2">
   <h5 class="pull-right">
@@ -24,3 +24,16 @@
     <% end %>
   </h5>
 </div>
+<ul class="comments-list">
+  <div class="col-md-12">
+    <div hidden id="comment_list">
+      <%= render partial: "comments/comment_list", collection: comment.comments, as: :comment %>
+      <li>
+        <%= render "shared/reply_form", comment: comment %>
+      </li>
+    </div>
+    <div class="show_more">
+      <%= link_to "More comments-list", "#", class: "show_more_button" %>
+    </div>
+  </div>
+</ul>

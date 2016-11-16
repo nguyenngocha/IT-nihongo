@@ -4,7 +4,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new comment_params
     @comment.save
-    @post = Post.find_by_id params[:comment][:target_id]
+    if params[:comment][:target_id] == Post.name
+      @post = Post.find_by_id params[:comment][:target_id]
+    else
+      @comment = Comment.find_by_id params[:comment][:target_id]
+      @post = @comment.post
+    end
     redirect_to @post
   end
 
