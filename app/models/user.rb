@@ -12,6 +12,8 @@ class User < ApplicationRecord
   enum gender: [:male, :female]
   enum role: [:user, :admin]
 
+  ratyrate_rater
+
   def password_required?
     new_record? ? super : false
   end

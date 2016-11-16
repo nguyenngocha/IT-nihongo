@@ -15,4 +15,6 @@ class Post < ApplicationRecord
 
   has_one :musical_instrument_evaluate, dependent: :destroy
   accepts_nested_attributes_for :musical_instrument_evaluate, allow_destroy: true
+
+  ratyrate_rateable "quality"
 end
