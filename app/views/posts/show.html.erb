@@ -66,9 +66,7 @@
 
         <br>
         <div class="col-md-12">
-          <div class="rating pull-left">
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-          </div>
+          post quality: <%= rating_for @post, "quality", disable_after_rate: false, enable_half: true %>
         </div>
 
         <div class="pull-right"><%= "create by: " %><%= link_to @post.user.name, "#" %></div>

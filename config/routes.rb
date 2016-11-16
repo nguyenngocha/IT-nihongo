@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   mount Ckeditor::Engine => "/ckeditor"
   root "static_pages#home"
 

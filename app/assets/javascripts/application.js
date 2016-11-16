@@ -14,10 +14,12 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
 //= require nested_attributes
 //= require common
 //= require ckeditor/init
+//= require jquery.raty
+//= require ratyrate
+//= require_tree .
 
 $(document).on('turbolinks:load', function() {
   setTimeout(function() {
