@@ -1,0 +1,11 @@
+<li class="comment">
+  <% user = comment.user %>
+  <%= image_tag user.profile.avatar, class: "avatar pull-left" %>
+  <div class="comment-body">
+    <div class="comment-heading">
+      <h4 class="user"><%= user.name %></h4>
+      <h5 class="time"><%= "#{time_ago_in_words(comment.created_at)} ago" %></h5>
+    </div>
+    <p><%= comment.content%></p>
+  </div>
+</li> 

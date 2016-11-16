@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.includes user: :profile
+    @comments = @post.comments.includes(user: [:profile])
   end
 
   def create
