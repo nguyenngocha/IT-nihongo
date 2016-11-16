@@ -16,6 +16,8 @@ gem "paperclip", "~> 5.0.0"
 gem "ckeditor"
 gem "ransack"
 gem "ratyrate"
+gem "font-awesome-rails"
+gem "twitter-bootstrap-rails", :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git"
 
 group :development, :test do
   gem "byebug", platform: :mri

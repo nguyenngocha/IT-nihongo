@@ -74,9 +74,19 @@
             </tr>
             <tr>
               <td>
-                <div class="rating">
-                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                </div>
+                <% if post.average("quality") %>
+                  <% avg_star = post.average("quality").avg.round %>
+                  <% avg_star.times do %>
+                    <span class="glyphicon glyphicon-star"></span>
+                  <% end %>
+                  <% (5 - avg_star).times do %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                  <% end %>
+                <% else %>
+                  <% 5.times do %>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                  <% end %>
+                <% end %>
               </td>
               <td class="text"><%= t "user.post.felling" %>: 
                 <%= t "user.post.fellings.#{post.felling}" %></td>

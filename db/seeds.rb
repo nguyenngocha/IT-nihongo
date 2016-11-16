@@ -11,7 +11,7 @@ puts "create users"
       address: "#{Faker::Address.street_address} - #{Faker::Address.city}",
       contact: Faker::PhoneNumber.cell_phone,
       avatar: open(Faker::Avatar.image)}
-  end
+end
 
 puts "create musical instruments"
 MusicalInstrument.create! name: "Violin", price: 5000,
@@ -49,9 +49,9 @@ puts "Create Posts"
 (1..3).each do |index|
   MusicalInstrument.all.each do |musical_instrument|
     Post.create! musical_instrument: musical_instrument,
-      content: Faker::Lorem.paragraph, user: User.user.shuffle.first,
+      content: Faker::Lorem.paragraph, user: User.user.sample,
       name: "#{musical_instrument.name} Review", description: Faker::Lorem.sentence,
-      sound_quality: "normal", felling: "great",
+      sound_quality: "normal", felling: "great", accessories: "test",
       musical_instrument_evaluate_attributes: {evaluation: 50 + rand(50)},
       image: File.open(File.join(Rails.root, "app/assets/images/#{musical_instrument.name.downcase!}#{index}.jpg"))
   end
@@ -60,7 +60,7 @@ end
 puts "Create Comments"
 5.times do
   Post.all.each do |post|
-    Comment.create! user: User.user.shuffle.last, target_id: post.id, target_type: "Post",
+    Comment.create! user: User.user.sample, target_id: post.id, target_type: "Post",
       content: Faker::Lorem.sentence
   end
 end

@@ -45,7 +45,7 @@
 
     <div class="col-md-6 form-group">
       <%= f.fields_for :musical_instrument_evaluate do |ff| %>
-        <%= ff.label :evaluation, t("user.evaluation") %> (0~100)
+        <%= ff.label :evaluation, t("user.evaluation") %><%= t "user.evaluation_mm" %>
         <%= ff.number_field :evaluation, class: "form-control" %>
       <% end %>
     </div>
