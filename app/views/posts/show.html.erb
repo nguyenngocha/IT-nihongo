@@ -43,33 +43,50 @@
         <p><%= @post.description %></p>
         <p><%= @post.content.html_safe %></p>
 
-        <div class="col-md-6"><%= t "user.post.felling" %>: 
-          <%= link_to t("user.post.fellings.#{@post.felling}"), "#" %></div>
-        <div class="col-md-6"><%= t "user.post.sound_quality" %>: 
-          <%= link_to t("user.post.sound_qualities.#{@post.sound_quality}"), "#" %></div>
-        <br />
-
-        <br />
-        <ul class="size">
-          <h4><%= t "user.post.accessories" %></h4>
-          <li><a href="#"><%= @post.accessories %></a></li>
-        </ul>
-
-        <ul class="color">
-          <h4><%= t "user.color" %></h4>
-          <li><a href="#"></a></li>
-          <li><a href="#" class="red"></a></li>
-          <li><a href="#" class="green"></a></li>
-          <li><a href="#" class="pink"></a></li>
-        </ul>
-        <br>
-
-        <br>
-        <div class="col-md-12">
-          <%= t "user.post_quality" %> <%= rating_for @post, "quality", disable_after_rate: false, enable_half: true %>
+        <div class="row">
+          <div class="col-md-6"><%= t "user.post.felling" %>: 
+            <%= link_to t("user.post.fellings.#{@post.felling}"), "#" %></div>
+          <div class="col-md-6"><%= t "user.post.sound_quality" %>: 
+            <%= link_to t("user.post.sound_qualities.#{@post.sound_quality}"), "#" %></div>
         </div>
 
-        <div class="pull-right"><%= t "user.create_by" %><%= link_to @post.user.name, "#" %></div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="size">
+              <h4><%= t "user.post.accessories" %></h4>
+              <li><a href="#"><%= @post.accessories %></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <%= t "user.post_quality" %> <%= rating_for @post, "quality", disable_after_rate: false, enable_half: true %>
+            <br>
+          </div>
+
+          <div class="col-md-8">
+            <%= t "user.create_by" %>
+            <%= link_to @post.user.name, "#" %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= image_tag @post.user.profile.avatar, class: "avatar" %>
+              </div>
+              <div class="col-md-3">
+                <%= "投稿数: " %><br /><%= @post.user.posts.count %>
+              </div>
+              <div class="col-md-7">
+                <%= "過去のレビューの評価: " %><br />
+                <% eval = user_post_evaluates(@post.user).round %>
+                <% eval.times do %>
+                  <span class="glyphicon glyphicon-star"></span>
+                <% end %>
+                <% (5 - eval).times do %>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

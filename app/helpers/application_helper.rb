@@ -21,6 +21,20 @@ module ApplicationHelper
       \"#{escape_javascript(@tmpl)}\")")
   end
 
+  def user_post_evaluates user
+    star = 0
+    eval = 0
+
+    user.posts.each do |post|
+      post.rates("quality").each do |rated|
+        star += rated.stars
+        eval += 1
+      end
+    end
+    return 0 if eval == 0
+    star/eval
+  end
+
   private
   def render_fields f, association
     new_object = f.object.class.reflect_on_association(association).klass.new

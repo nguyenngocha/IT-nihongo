@@ -15,6 +15,9 @@ class CommentsController < ApplicationController
 
   def edit
     @post = @comment.post
+    @post ||= @comment.comment.post
+    @child_comment = false
+    @child_comment = true if @comment.comment
     respond_to do |format|
       format.html
       format.js
@@ -22,9 +25,11 @@ class CommentsController < ApplicationController
   end
 
   def update
+    post = @comment.post
+    post ||= @comment.comment.post
     if @comment.update_attributes comment_params
       flash[:success] = t "admin.flash.update_success", source: "comment"
-      redirect_to @comment.post
+      redirect_to post
     end
   end
 
