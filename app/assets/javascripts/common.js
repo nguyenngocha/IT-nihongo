@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
-  $('body').on('click','.search', function(e){
+  $('body').on('click', '.search', function(e){
     var search;
     e.preventDefault();
     search = document.getElementById('search_form');
@@ -23,13 +23,14 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
-  $('body').on('keypress','.form',function (event) { 
+  $('body').on('keypress', '.form', function (event) { 
     if (event.which == 13) { 
       $(this).find('.search').click(); 
       return false; 
     }
   });
 });
+
 $(document).on('turbolinks:load', function() {
   $('.show_more_button').on('click', function(e){
     e.preventDefault();

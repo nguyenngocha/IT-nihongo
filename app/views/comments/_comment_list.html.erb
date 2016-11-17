@@ -1,11 +1,28 @@
-<li class="comment">
-  <% user = comment.user %>
-  <%= image_tag user.profile.avatar, class: "avatar pull-left" %>
-  <div class="comment-body">
-    <div class="comment-heading">
-      <h4 class="user"><%= user.name %></h4>
-      <h5 class="time"><%= "#{time_ago_in_words(comment.created_at)} ago" %></h5>
+<div class="col-md-10" id="<%= comment.id %>">
+  <li class="comment">
+    <% user = comment.user %>
+    <%= image_tag user.profile.avatar, class: "avatar pull-left" %>
+    <div class="comment-body">
+      <div class="comment-heading">
+        <h4 class="user"><%= user.name %></h4>
+        <h5 class="time"><%= "#{time_ago_in_words(comment.created_at)} ago" %></h5>
+      </div>
+      <p><%= comment.content%></p>
     </div>
-    <p><%= comment.content%></p>
-  </div>
-</li> 
+  </li> 
+</div>
+<br>
+<br>
+<div class="col-md-2">
+  <h5 class="pull-right">
+    <% if comment.user == current_user %>
+      <%= link_to "#", data: {id: comment.id}, class: "edit_comment" do %>
+        <i class="glyphicon glyphicon-edit"></i>
+      <% end %>
+      <%= link_to comment_path(comment), method: :delete, data: {confirm: t("admin.confirm_delete")},
+        class: "danger" do %>
+        <i class="glyphicon glyphicon-trash"></i>
+      <% end %>
+    <% end %>
+  </h5>
+</div>

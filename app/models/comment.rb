@@ -14,6 +14,10 @@ class Comment < ApplicationRecord
     target_type == Post.name ? target : nil
   end
 
+  def comment
+    target_type == Comment.name ? target : nil
+  end
+
   def comments
     Comment.ccomments self.id
   end
