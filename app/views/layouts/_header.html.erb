@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
     <% if user_signed_in? && current_user.admin? %>
       <%= link_to t("layouts.musical_instrument_review"),
         admin_users_path, id: "logo" %>
@@ -10,10 +10,15 @@
         root_path, id: "logo" %>
     <% end %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="row">
-          <div class="col-lg-12 search_form">
+          <div class="col-lg-9 search_form">
             <%= render "layouts/search_form" %>
+          </div>
+          <div class="col-lg-3 select_form">
+            <%= select_tag "musical_instrument", options_from_collection_for_select(
+              @header_musical_instruments, :id, :name), class: "form-control",
+              id: "musical_instrument" %>
           </div>
         </div>
       </div>
