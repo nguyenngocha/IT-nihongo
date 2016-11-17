@@ -1,5 +1,5 @@
 <% if @is_search %>
-  $(".posts").html("<%= j render 'posts' %>")
+  $(".user").html("<br><h1>Search Result</h1><br><br><div class='container'><%= j render 'posts' %></div>")
 <% else %>
   $(".home-content").html("<%= j render 'home_page_content' %>");
 <% end %>

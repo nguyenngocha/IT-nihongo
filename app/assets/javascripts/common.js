@@ -17,8 +17,9 @@ $(document).on('turbolinks:load', function() {
   $('body').on('click', '.search', function(e){
     var search;
     e.preventDefault();
+    var e = document.getElementById("musical_instrument");
     search = document.getElementById('search_form');
-    $.getScript('/?q=' + search.value);
+    $.getScript('/?q=' + search.value + "&selected=" + e.options[e.selectedIndex].value);
   })
 });
 
