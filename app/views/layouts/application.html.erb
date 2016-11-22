@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <%= render "layouts/header" unless (current_user && current_user.admin?) %>
     <% if user_signed_in? && current_user.admin? && @namespace == "admin" %>
       <div id="wrapper">
         <%= render "layouts/admin_sidebar" %>

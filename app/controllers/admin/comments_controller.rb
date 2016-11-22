@@ -3,6 +3,7 @@ class Admin::CommentsController < ApplicationController
 
   def destroy
     @post = @comment.post
+    @post ||= @comment.comment.post
     @comment.destroy
     flash[:success] = t "admin.flash.destroy_success", source: "comment"
     redirect_to admin_post_path(@post)

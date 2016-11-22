@@ -27,7 +27,8 @@
 <ul class="comments-list">
   <div class="col-md-12">
     <div hidden id="comment_list">
-      <%= render partial: "comments/comment_list", collection: comment.comments, as: :comment %>
+      <%= render partial: "admin/comments/comment_list",
+        collection: comment.comments, as: :comment %>
       <li>
         <%= render "shared/reply_form", comment: comment %>
       </li>

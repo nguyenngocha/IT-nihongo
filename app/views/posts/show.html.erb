@@ -52,19 +52,18 @@
 
         <div class="row">
           <div class="col-md-12">
-            <ul class="size">
-              <h4><%= t "user.post.accessories" %></h4>
-              <li><a href="#"><%= @post.accessories %></a></li>
-            </ul>
+            <%= t "user.post.accessories" %>: <%= link_to @post.accessories, "#" %>
           </div>
         </div>
+
+        <br/>
         <div class="row">
           <div class="col-md-4">
             <%= t "user.post_quality" %> <%= rating_for @post, "quality", disable_after_rate: false, enable_half: true %>
             <br>
           </div>
 
-          <div class="col-md-8">
+          <div class="col-md-8 create_by">
             <%= t "user.create_by" %>
             <%= link_to @post.user.name, "#" %>
             <div class="row">
