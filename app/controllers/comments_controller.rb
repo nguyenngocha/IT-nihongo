@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
   def destroy
     if @comment.user == current_user
       @post = @comment.post
+      @post ||= @comment.comment.post
       @comment.destroy
       flash[:success] = t "admin.flash.destroy_success", source: "comment"
       redirect_to @post
