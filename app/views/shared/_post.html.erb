@@ -1,0 +1,21 @@
+<div class="thumbnail">
+  <%= link_to image_tag(post.image, style: "height: #{image_size};"), post, class: "image" %>
+  <div class="ratings">
+    <p class="pull-right"><%= post.rates("quality").count %> rated</p>
+    <p>
+      <% if post.average("quality") %>
+        <% avg_star = post.average("quality").avg.round %>
+        <% avg_star.times do %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% (5 - avg_star).times do %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      <% else %>
+        <% 5.times do %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+</div>

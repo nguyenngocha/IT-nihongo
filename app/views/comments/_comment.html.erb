@@ -1,7 +1,13 @@
+<hr>
+<div class="row">
 <div class="col-md-10">
   <% user = comment.user %>
   <a class="pull-left" href="#">
-    <%= image_tag user.profile.avatar, class: "avatar" %>
+    <% if user.profile %>
+      <%= image_tag user.profile.avatar, class: "avatar" %>
+    <% else %>
+      <%= image_tag "#" %>
+    <% end %>
   </a>
   <div class="comment-body">
     <div class="comment-heading">
@@ -30,7 +36,9 @@
       <%= render partial: "admin/comments/comment_list",
         collection: comment.comments, as: :comment %>
       <li>
-        <%= render "shared/reply_form", comment: comment %>
+        <% if current_user && current_user.user? %>
+          <%= render "shared/reply_form", comment: comment %>
+        <% end %>
       </li>
     </div>
     <div class="show_more">
@@ -38,3 +46,4 @@
     </div>
   </div>
 </ul>
+</div>

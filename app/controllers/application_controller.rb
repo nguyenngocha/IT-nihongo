@@ -21,6 +21,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def value post
+    value = post.average("quality")
+    value = value.avg if value
+    value ||= 0
+    value
+  end
+
   private
   def namespace
     @namespace = self.class.parent.to_s.downcase

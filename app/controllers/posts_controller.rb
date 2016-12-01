@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :verify_user, except: :show
   before_action :load_music_instrument, only: [:new, :edit]
   before_action :load_post, only: [:edit, :show, :update, :destroy]
   before_action :load_comment, only: :show
