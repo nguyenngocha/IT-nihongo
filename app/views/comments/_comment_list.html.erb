@@ -15,7 +15,7 @@
 <br>
 <div class="col-md-2">
   <h5 class="pull-right">
-    <% if current_user.admin? %>
+    <% if current_user && current_user.admin? %>
       <%= link_to comment_path(comment), method: :delete, data: {confirm: t("admin.confirm_delete")},
         class: "danger" do %>
         <i class="glyphicon glyphicon-trash"></i>

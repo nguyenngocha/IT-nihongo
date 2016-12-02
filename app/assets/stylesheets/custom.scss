@@ -298,3 +298,15 @@ input {
 .create_by {
   border: solid 1px #ccc;
 }
+
+footer {
+  width:100%;
+  height:100px;
+  position:fixed;
+  bottom:-100px;
+  left:0;
+}
+
+body {
+  padding-bottom: 50px;
+}

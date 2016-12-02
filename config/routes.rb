@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
   resources :user_items
+  resources :top_pages
+  resources :users
 end

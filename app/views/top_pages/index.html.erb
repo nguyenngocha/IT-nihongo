@@ -1,0 +1,43 @@
+<div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid" style="border-top: solid #e7e7e7 0.5px;">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><%= t "admin.musical_instruments" %></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% MusicalInstrument.all.each do |mi| %>
+        <li><%= link_to mi.name, root_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+
+  <div class="col-md-3">
+    <h1>Rank Posts</h1>
+    <br>
+    <br>
+    <% @top_rank_posts.each do |tp| %>
+    <div class="col-md-10 col-md-offset-1">
+      <%= render "shared/post", post: tp, image_size: "150px" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-md-9">
+    <div class="latest-posts">
+      <h1 class="pull-left">
+        Lastest Posts
+      </h1>
+      <br>
+      <br>
+      <hr>
+      <% @lastest_posts.each do |lp| %>
+        <div class="col-md-4">
+          <%= render "shared/post", post: lp, image_size: "250px" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

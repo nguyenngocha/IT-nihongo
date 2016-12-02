@@ -1,7 +1,11 @@
 <div class="col-md-10" id="<%= comment.id %>">
   <li class="comment">
     <% user = comment.user %>
-    <%= image_tag user.profile.avatar, class: "avatar pull-left" %>
+    <% if user.profile %>
+      <%= image_tag user.profile.avatar, class: "avatar pull-left" %>
+    <% else %>
+      <%= image_tag "#" %>
+    <% end %>
     <div class="comment-body">
       <div class="comment-heading">
         <h4 class="user"><%= user.name %></h4>
