@@ -1,5 +1,7 @@
 en:
   user:
+    gender:
+      0: "a"
     comment: "コメント"
     posts: "投稿・一覧"
     post:

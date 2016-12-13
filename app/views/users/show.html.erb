@@ -2,7 +2,7 @@
   <div class="w3-card-2 w3-round w3-white">
     <div class="w3-container">
       <br>
-      <h4 class="text-center">My Profile</h4>
+      <h4 class="text-center">プロフィール</h4>
       <br>
       <p class="text-center">
         <% if @user.profile %>
@@ -12,27 +12,45 @@
         <% end %>
       </p>
       <hr>
-      <p><%= "Name: #{@user.name}"%></p>
-      <p><%= "Email: #{@user.email}"%></p>
-      <p><%= "Old: #{@user.profile.old}" if @user.profile %></p>
-      <p><%= "Gender: #{@user.profile.gender}" if @user.profile %></p>
-      <p><%= "contact: #{@user.profile.contact}" if @user.profile %></p>
+      <div class="col-md-10">
+        <p><%= "名前: #{@user.name}"%></p>
+        <p><%= "イメール: #{@user.email}"%></p>
+        <p><%= "年齢: #{@user.profile.old}" if @user.profile %></p>
+        <p><%= "性別: #{@user.profile.gender}" if @user.profile %></p>
+        <p><%= "連絡先: #{@user.profile.contact}" if @user.profile %></p>
+      </div>
+      <div class="col-md-2">
+        <%= render "follow_form" if user_signed_in? %>
+      </div>
     </div>
-    <%= link_to "Edit profile", edit_user_registration_path if @user == current_user %>
+    <div class="col-md-12">
+      <%= link_to "プロフィール変更", edit_user_registration_path if @user == current_user %>
+    </div>
   </div>
 </div>
 <div class="col-md-9">
   <div class="latest-posts">
     <h1 class="pull-left">
-      <%= @user.name %>'s Posts
+      <%= @user.name %>のポスト
     </h1>
     <br>
     <br>
     <hr>
     <% @user.posts.each do |lp| %>
       <div class="col-md-4">
-        <%= render "shared/post", post: lp %>
+        <%= render "shared/post", post: lp, image_size: "250px" %>
       </div>
     <% end %>
   </div>
+  <% if current_user.following? @user %>
+    <div class="col-md-12">
+      <div class="latest-posts">
+        <h1 class="pull-left">
+          <%= @user.name %>のevaluatedポスト
+        </h1>
+        <br>
+        <br>
+      <hr>
+    </div>
+  <% end %>
 </div>

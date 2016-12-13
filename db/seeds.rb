@@ -10,7 +10,7 @@ puts "create users"
     profile_attributes: {old: "20", gender: "male",
       address: "#{Faker::Address.street_address} - #{Faker::Address.city}",
       contact: Faker::PhoneNumber.cell_phone,
-      avatar: open(Faker::Avatar.image)}
+      avatar: open(Faker::Avatar.image})
 end
 
 puts "create musical instruments"
