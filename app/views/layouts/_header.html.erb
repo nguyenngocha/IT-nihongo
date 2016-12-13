@@ -7,7 +7,7 @@
         admin_users_path, id: "logo" %>
     <% else %>
       <%= link_to t("layouts.musical_instrument_review"),
-        root_path, id: "logo" %>
+        top_pages_path, id: "logo" %>
     <% end %>
       </div>
       <div class="col-md-5">
@@ -25,9 +25,9 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? && current_user.admin? %>
-          <li><%= link_to t("layouts.user_home"), root_path %></li>
+          <li><%= link_to t("layouts.user_home"), top_pages_path %></li>
         <% else %>
-          <li><%= link_to t("layouts.home"), root_path %></li>
+          <li><%= link_to t("layouts.home"), top_pages_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to t("user.posts"), posts_path %></li>
             <li><%= link_to t("layouts.profile"), user_path(current_user) %></li>

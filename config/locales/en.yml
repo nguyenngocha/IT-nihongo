@@ -1,5 +1,7 @@
 en:
-  title: "IT 日本語"  
+  title: "IT 日本語"
+  unfollow: "Unfollow"
+  follow: "Follow"
   layouts:
     musical_instrument_review: "楽器 レビュー"
     home: "ホームページ"

@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       admin_root_path
     else
-      root_path
+      top_pages_path
     end
   end
 

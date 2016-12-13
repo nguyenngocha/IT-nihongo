@@ -1,7 +1,7 @@
 <div class="thumbnail">
   <%= link_to image_tag(post.image, style: "height: #{image_size};"), post, class: "image" %>
   <div class="ratings">
-    <p class="pull-right"><%= post.rates("quality").count %> rated</p>
+    <p class="pull-right"><%= post.rates("quality").count %> レート</p>
     <p>
       <% if post.average("quality") %>
         <% avg_star = post.average("quality").avg.round %>
